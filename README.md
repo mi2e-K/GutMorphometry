@@ -98,6 +98,4 @@ analysis outputs. Keep large `.tif`, `.png`, `.jpg`, `.csv`, and `.jsonl`
 result files outside Git unless they are deliberately curated as examples.
 
 ## License
-
-No open-source license has been selected yet. Add a `LICENSE` file before
-inviting external reuse or contribution.
+MIT
