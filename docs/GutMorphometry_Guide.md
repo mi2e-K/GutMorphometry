@@ -26,9 +26,9 @@ Fiji マクロ + Python スクリプトで構成され、絨毛高・絨毛幅�
 
 | ソフトウェア | バージョン | 備考 |
 |---|---|---|
-| Windows | 10 / 11 | macOS 非対応（`cmd.exe` 呼び出しを使用） |
+| Windows | 10 / 11 | macOS 非対応 |
 | Fiji (ImageJ2) | 最新版推奨 | https://fiji.sc |
-| Anaconda / Miniconda | 任意の最新版 | Python 3.8 以上が入っていればよい |
+| Anaconda / Miniconda | 任意の最新版 | Python 3.8 以上が |
 | Python パッケージ | 下記参照 | base 環境か専用環境にインストール |
 
 **必要な Python パッケージ（標準的な Anaconda base 環境に含まれる）：**
@@ -172,13 +172,13 @@ where python
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│  Measurement type:                     [villus          ▼] │
-│  Loop position:                        [outer           ▼] │
-│  Measurements per session (villus / crypt): [10]           │
-│  ☐ Pick background colour (villus width segmentation)      │
-│  Notes (optional): [_________________________________]      │
-│  ☑ Calibrate muscularis threshold                          │
-│                                            [OK]  [Cancel]  │
+│  Measurement type:                     [villus        ▼] │
+│  Loop position:                        [outer         ▼] │
+│  Measurements per session (villus / crypt): [10]         │
+│  ☐ Pick background colour (villus width segmentation)   │
+│  Notes (optional): [_________________________________]   │
+│  ☑ Calibrate muscularis threshold　　　　　　　　　　　　　│
+│                                          [OK]  [Cancel]  │
 └──────────────────────────────────────────────────────────┘
 ```
 
