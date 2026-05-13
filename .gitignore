@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Fiji / ImageJ local state
+GutMorphometry_config/
+*.log
+
+# Raw microscopy images and generated analysis outputs
+*.tif
+*.tiff
+*.ome.tif
+*.ome.tiff
+*_results.csv
+*_coords.jsonl
+*_overlay.jpg
+*_outer_*_villus.png
+*_outer_*_muscularis.png
+
+# Local sample/working folders in this workspace
+/GutMorphometry_Guide.md
+282_*/
+282_*.*
+musc_viz_tmp.*
+Crypt*.png
+vis*.png
+スクショ*.png
+エラーログ*.png
+パネルスクショ*.png
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Agent-local settings
+.claude/
