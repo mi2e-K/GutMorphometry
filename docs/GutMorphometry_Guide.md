@@ -416,7 +416,7 @@ e_factor < 1.0  → 閾値が下がり、より多くの画素を検出
 
 ---
 
-## 10. アルゴリズム解説
+## 10. アルゴリズム
 
 ### H&E 色分離（Ruifrok & Johnston 2001）
 
@@ -478,39 +478,6 @@ tissue = polygon AND (d_bg > threshold)
   → Gaussian平滑化(sigma=2px)   # 境界のギザギザを除去
   → binary_fill_holes           # 平滑化後の穴を埋める
 ```
-
-### 中心軸 EDT による筋層厚み計測
-
-従来の全画素 EDT 平均ではなく、**中心軸（medial axis）上の画素のみ**でサンプリングする。
-
-```
-skel, dist = medial_axis(mask, return_distance=True)
-  skel : ボロノイ境界による幾何学的中心軸
-  dist : 各中心軸画素から最近傍境界までの距離 r（内接円半径）
-
-# スパー除去（端点を繰り返し削除）
-skel = prune_spurs(skel, n_iter=10)
-
-mean_thickness = mean(2 × r) for all axis pixels
-effective_length = area / mean_thickness
-```
-
-**直感的な理解：**
-```
-■■■■■■■■■■■■
-■ r=1       ■
-■   r=3       ■      r = 境界までの最短距離（内接円半径）
-■     r=5       ■    local_thickness = 2r
-■   r=3       ■      中央の中心軸画素が最も大きな r を持つ
-■ r=1       ■
-■■■■■■■■■■■■
-```
-
-均一な帯状構造では `mean(2r) = W`（帯幅の正確な推定）になる。  
-全画素 EDT 平均では `mean(EDT) = W/2` になるため、係数 2 がずれる問題があった。
-
-**スパー除去の意義：**  
-マスク端部でのフリンジ（枝分かれ）を除去し、主軸のみを残すことで、端部バイアスを排除する。
 
 ### 絨毛幅の計測手順（villus_width.py）
 
@@ -703,22 +670,6 @@ ROI の座標情報を 1 行 1 エントリの JSON Lines 形式で記録する�
 - Step 2 のポリゴンが絨毛の輪郭に密着しすぎている → 少し余白を持たせて描く
 - `bg_rgb` が未設定のため組織分離ができず、ポリゴン境界内の空白部分がマスクに含まれている → キャリブレーション GUI で `Pick Background` を実行する
 
-### スケールが正しく設定されない
-
-- `Set scale from 500 µm scale bar?` チェックボックスを ON にしてセッションを開始
-- スケールバーの両端に正確に線を引く（拡大して描くと精度が上がる）
-- 設定後、`Image > Properties` でスケールを確認できる
-
-### サブフォルダが作成されない
-
-- 画像フォルダへの書き込み権限を確認する（Program Files 内など権限が制限されている場所に画像を置かない）
-- `File.makeDirectory` は Fiji macro の組み込み関数。Fiji のバージョンが古い場合は更新を検討する
-
-### バックグラウンドカラーを選んだが幅計算に反映されない
-
-- `musc_params.json` に `bg_rgb` が正しく書き込まれているか確認する（Fiji のステータスバーに `R=... G=... B=... saved` が表示されれば OK）
-- `villus_width.py` を AutoRun フォルダに配置しているか確認する
-
 ---
 
-*GutMorphometry — 開発者: ksmhp*
+*GutMorphometry — 開発者: K.M.*
