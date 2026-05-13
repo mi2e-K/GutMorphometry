@@ -112,20 +112,14 @@ where python
 
 例：`C:\Users\ユーザー名\Fiji.app\GutMorphometry_config\`
 
-手動で作成する必要はない。このフォルダは同じ PC 上の全セッションで共有される。
-
-> **なぜ AutoRun フォルダに置かないのか**  
-> Fiji は起動時に `scripts\Plugins\AutoRun\` 内の全ファイルをスクリプトとして実行しようとする。  
-> `.txt` ファイルもその対象になるため、`pixel_scale.txt` を AutoRun に置くと  
-> 起動のたびに Log ウィンドウに数値が表示されてしまう。  
-> `GutMorphometry_config\` はその問題を避けるための専用フォルダ。
+このフォルダは同じ PC 上の全セッションで共有される。
 
 ---
 
 ## 3. 初回動作確認
 
 1. Fiji を起動する
-2. `Plugins > Gut Morphometry [G]` を選択（または `G` キー）
+2. `Plugins > Gut Morphometry
 3. H&E 画像を開く（または開いている状態で起動）
 4. セッションセットアップダイアログが表示されれば起動成功
 
